@@ -1,4 +1,4 @@
-
+import math
 
 class EcuacionCuadratica:
     def __init__(self, a, b, c):
