@@ -1,11 +1,11 @@
-// Clase base para las figuras geométricas
+
 class Figura {
     calcularArea(): number {
-        return 0;  // Método base que será sobreescrito en las subclases
+        return 0;  
     }
     
     calcularVolumen(): number {
-        return 0;  // Método base que será sobreescrito en las subclases 3D
+        return 0;  
     }
 }
 
@@ -56,14 +56,14 @@ class Circunferencia extends Figura {
     }
 }
 
-// Clase base para figuras 3D, que extiende de Figura
+
 class Figura3D extends Figura {
     calcularVolumen(): number {
-        return 0;  // Método base para volumen en figuras 3D
+        return 0;  
     }
 }
 
-// Clase Prisma Rectangular que hereda de Figura3D
+
 class PrismaRectangular extends Figura3D {
     private largo: number;
     private ancho: number;
@@ -85,7 +85,7 @@ class PrismaRectangular extends Figura3D {
     }
 }
 
-// Clase Prisma Pentagonal que hereda de Figura3D
+
 class PrismaPentagonal extends Figura3D {
     private lado: number;
     private apotema: number;

@@ -1,36 +1,42 @@
-import math
+class EcuacionCuadratica {
+    private a: number;
+    private b: number;
+    private c: number;
 
-class EcuacionCuadratica:
-    def __init__(self, a, b, c):
-        self.a = a  # Coeficiente de x^2
-        self.b = b  # Coeficiente de x
-        self.c = c  # Término independiente
+    constructor(a: number, b: number, c: number) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
     
-    def calcular_discriminante(self):
-        # Discriminante: b^2 - 4ac
-        return self.b ** 2 - 4 * self.a * self.c
-    
-    def calcular_raices(self):
-        discriminante = self.calcular_discriminante()
+    public calcularRaices(): void {
+        const discriminante = this.b ** 2 - 4 * this.a * this.c;
         
-        if discriminante > 0:
-            # Dos raíces reales
-            raiz_1 = (-self.b + math.sqrt(discriminante)) / (2 * self.a)
-            raiz_2 = (-self.b - math.sqrt(discriminante)) / (2 * self.a)
-            return (raiz_1, raiz_2)
-        elif discriminante == 0:
-            # Una raíz real (doble)
-            raiz = -self.b / (2 * self.a)
-            return (raiz,)
-        else:
-            # No hay raíces reales
-            return None
+        if (discriminante > 0) {
+            const x1 = (-this.b + Math.sqrt(discriminante)) / (2 * this.a);
+            const x2 = (-this.b - Math.sqrt(discriminante)) / (2 * this.a);
+            console.log(`La ecuación tiene dos raíces reales: x1 = ${x1}, x2 = ${x2}`);
+        } else if (discriminante === 0) {
+            const x = -this.b / (2 * this.a);
+            console.log(`La ecuación tiene una única raíz real: x = ${x}`);
+        } else {
+            console.log("La ecuación no tiene raíces reales.");
+        }
+    }
 
-# Ejemplo de uso:
-ecuacion = EcuacionCuadratica(1, -3, 2)
-raices = ecuacion.calcular_raices()
+    
+    public imprimirCoeficientes(): void {
+        console.log(`Coeficientes: a = ${this.a}, b = ${this.b}, c = ${this.c}`);
+    }
+}
 
-if raices:
-    print(f"Las raíces de la ecuación son: {raices}")
-else:
-    print("No hay raíces reales.")
+
+const ecuacion1 = new EcuacionCuadratica(1, -3, 2);
+ecuacion1.imprimirCoeficientes();  
+ecuacion1.calcularRaices();        
+
+
+const ecuacion2 = new EcuacionCuadratica(1, 2, 5);  
+ecuacion2.imprimirCoeficientes();
+ecuacion2.calcularRaices();
